@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <Navbar className='border-b-2'>
         <Link to='/' className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'>
-         <span className='px-2 py-1 bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 rounded-lg text-white'>Chikenemms's </span>Blog
+         <span className='px-2 py-1 bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 rounded-lg text-white'>CKM's </span>Blog
         </Link>
         <form>
             <TextInput 

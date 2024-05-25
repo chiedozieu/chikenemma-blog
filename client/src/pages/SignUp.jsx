@@ -47,7 +47,7 @@ export default function SignUp() {
       <div className="flex  p-3 max-w-4xl mx-auto flex-1 gap-6 flex-col md:flex-row md:items-center">
         <div className="">
           <Link to='/' className='font-bold dark:text-white text-4xl'>
-            <span className='px-2 py-1 bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 rounded-lg text-white'>Chikenemms's</span>Blog
+            <span className='px-2 py-1 bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 rounded-lg text-white'>CKM's</span>Blog
           </Link>
           <p className="text-sm mt-5">Signup to get the Latest News and Views Breaking Stories and Expert Analysis</p>
         </div>
@@ -69,7 +69,7 @@ export default function SignUp() {
               {
                 loading ? (
                   <>
-                    <Spinner size='sm'/>
+                    <Spinner size='sm' color='purple'/>
                     <span className="pl-3">Loading...</span>
                   </>
                 ) : ('Sign up')
