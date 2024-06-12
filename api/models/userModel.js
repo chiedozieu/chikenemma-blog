@@ -19,6 +19,10 @@ email: {
 profilePicture: {
   type: 'string',
   default: 'https://cdn.pixabay.com/photo/2021/07/02/04/48/user-6380868_1280.png',
+},
+isAdmin: {
+  type: 'boolean',
+  default: false,
 }
 },{timestamps: true})
 

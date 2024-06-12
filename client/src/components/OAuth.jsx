@@ -35,8 +35,8 @@ import { useNavigate } from 'react-router-dom'
         }
     }
    return (
-     <Button type='button' gradientDuoTone='pinkToOrange' outline>
-      <AiFillGoogleCircle className='h-6 w-6 mr-2' onClick={handleGoogleClick}/>
+     <Button type='button' gradientDuoTone='pinkToOrange' outline onClick={handleGoogleClick}>
+      <AiFillGoogleCircle className='h-6 w-6 mr-2' />
       Continue with Google
       </Button>
    )
