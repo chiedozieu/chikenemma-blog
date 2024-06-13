@@ -14,18 +14,29 @@ export default function CreatePost() {
                 <Select id="categories">
                     <option uncategorized=''>Select a category</option>
                     <option value="javascript">Javascript</option>
-                    <option value="reactjs">React.js</option>
-                    <option value="Nextjs">Next.js</option>
+                    <option value="reactjs">React.js</option>  
+                    <option value="nextjs">Next.js</option>
                     <option value="python">Python</option>
                 </Select>             
             </div>
-            <div className="flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3">
-                <FileInput  type='file' accept='image/*'/>
+            <div className="flex items-center justify-between border-4 border-teal-500 border-dotted p-3">
+               
+                <input 
+                type="file"
+                className='file:bg-black
+                file:p-2 file:ml-4 file:my-2 file:border-none file:rounded-xl
+                file:text-white file:cursor-pointer 
+               
+                text-black/80 
+                rounded-xl cursor-pointer '
+                accept='image/*' multiple/>
+
+        
                 <Button type='button' gradientDuoTone='purpleToBlue'size='sm' outline>
                     Upload image
                 </Button>
             </div>
-            <ReactQuill theme='snow' placeholder='Write somthing...' className='h-72' required/>
+            <ReactQuill theme='snow' placeholder='Write something...' className='h-72' required/>
             <Button type='submit' gradientDuoTone='purpleToPink' className='mt-12'>
                 Publish
             </Button>
