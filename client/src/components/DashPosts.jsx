@@ -1,4 +1,4 @@
-import { Alert, Table } from "flowbite-react"
+import { Button, Table } from "flowbite-react"
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
@@ -8,16 +8,22 @@ import { Link } from "react-router-dom"
 
 
 export default function DashPosts() {
-    const [ userPosts, setuserPosts ] = useState([])
+    const [ userPosts, setUserPosts ] = useState([])
+    const [showMore, setShowMore] = useState(true)
+
+
     const { currentUser } = useSelector(state => state.user)
-    console.log(userPosts)
+    
 useEffect(() => {
     const fetchPosts = async () => {
         try {
            const res = await fetch(`/api/post/getposts?userId=${currentUser._id}`) 
            const data = await res.json()
            if(res.ok){
-            setuserPosts(data.posts)
+            setUserPosts(data.posts)
+            if (data.posts.length < 9){
+                setShowMore(false)
+            }
            }
         } catch (error) {
             console.log(error.message)
@@ -27,6 +33,22 @@ useEffect(() => {
     fetchPosts();
 }
 }, [currentUser._id]);
+
+const handleShowMore = async (user) => {
+    const startIndex = userPosts.length;
+     try {
+        const res = await fetch(`/api/post/getposts?userId=${currentUser._id}&startIndex=${startIndex}`)
+        const data = await res.json();
+        if(res.ok){
+             setUserPosts((prev) => [...prev, ...data.posts])
+        }
+        if(data.posts.length < 9) {
+            setShowMore(false)
+        }
+     } catch (error) {
+        console.log(error.message);
+     }  
+};
 
 
   return (
@@ -78,9 +100,16 @@ useEffect(() => {
 
                         }
                     </Table>
+                    {
+                        showMore && (
+                            <Button onClick={handleShowMore} className="w-full text-teal-500 self-center text-sm py-7">
+                                Show More
+                            </Button>
+                        )
+                    }
                 </>
             ) : (
-                <p>You have no post yet</p>
+              ''
             )
         }
     </div>
