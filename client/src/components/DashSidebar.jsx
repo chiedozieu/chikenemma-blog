@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from "react"
 import { signoutSuccess } from "../redux/user/userSlice.js";
 import { useDispatch, useSelector } from "react-redux";
+import { TbUsersGroup } from "react-icons/tb";
 
 
 export default function DashSidebar() {
@@ -53,9 +54,16 @@ export default function DashSidebar() {
                 </Link>
 
                  { currentUser.isAdmin &&
-                    <Link to='/dashboard?tab=posts'>
+                 <Link to='/dashboard?tab=posts'>
                     <Sidebar.Item active={tab==="posts"} icon={HiDocumentText} as='div'>
                         Posts
+                    </Sidebar.Item>
+                 </Link>
+                 }
+                 { currentUser.isAdmin &&
+                 <Link to='/dashboard?tab=users'>
+                    <Sidebar.Item active={tab==="users"} icon={TbUsersGroup} as='div'>
+                        Users
                     </Sidebar.Item>
                  </Link>
                  }
