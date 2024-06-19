@@ -53,7 +53,7 @@ const handleShowMore = async (user) => {
      }  
 };
 
-const handleDeletePost = async (req, res, next) => {
+const handleDeletePost = async () => {
     setShowDeleteModal(false);
     try {
       const res = await fetch(`/api/post/deletepost/${postIdToDelete}/${currentUser._id}`, {
@@ -87,7 +87,7 @@ const handleDeletePost = async (req, res, next) => {
                           <Table.HeadCell><span>Edit</span></Table.HeadCell>
                         </Table.Head>
                         {userPosts.map((post) => (
-                            <Table.Body className="divide-y">
+                            <Table.Body className="divide-y" key={post._id}>
                                  <Table.Row className="bg-white dark:border-gray-700 dark:gray-800 "> 
                                     <Table.Cell>{new Date(post.updatedAt).toLocaleDateString()}</Table.Cell>
 
