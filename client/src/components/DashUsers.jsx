@@ -55,8 +55,21 @@ const handleShowMore = async (user) => {
      }  
 };
 
-const handleDeleteUser = async (req, res, next) => {
-   
+const handleDeleteUser = async () => {
+   try {
+    const res = await fetch(`/api/user/delete/${userIdToDelete}`, {
+      method: 'DELETE'});
+
+    const data = await res.json();
+    if(res.ok){
+     setUsers((prev) => prev.filter((user) => user._id !== userIdToDelete))
+     setShowDeleteModal(false);
+    }else{
+      console.log(data.error);
+    }
+   } catch (error) {
+    console.log(error.message);
+   }
 }
 
 
