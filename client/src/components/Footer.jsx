@@ -16,8 +16,8 @@ export default function FooterComponent() {
             <div>
               <Footer.Title title="about" />
               <Footer.LinkGroup col>
-                <Footer.Link href="#">chikenemma</Footer.Link>
-                <Footer.Link href="#">chikenemma</Footer.Link>
+                <Footer.Link href="/">chikenemma</Footer.Link>
+                <Footer.Link href="/about">About</Footer.Link>
               </Footer.LinkGroup>
             </div>
             <div>
